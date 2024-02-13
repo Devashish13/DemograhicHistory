@@ -35,11 +35,12 @@ def plot(popfile,time_start=100,time_end=15000):
 	import pandas as pd
 	import os
 	df = pd.read_csv(popfile,sep = "\t")
+	os.system(f"mkdir plots")
 	unique_pops = df.iloc[:,1].unique()
 	
 #	s = "docker run --rm -v $PWD:/mnt terhorst/smcpp:latest plot demography_all.png "
 	for k in unique_pops:
-		z = f"docker run --rm -v $PWD:/mnt terhorst/smcpp:latest plot {k}.png analysis/{k}/model.final.json -x {time_start} {time_end} -c"
+		z = f"docker run --rm -v $PWD:/mnt terhorst/smcpp:latest plot plots/{k}.png analysis/{k}/model.final.json -x {time_start} {time_end} -c"
 		os.system(z)
 #		s = s+f"analysis/{k}/model.final.json "
 
