@@ -5,6 +5,8 @@ All the functions assume that the user has generated population population-speci
 
 If the user has a single genotype file, then user can make use of bcftools script provided here to generate population-specific bgzipped and tabix index VCFs.
 
+
+from smcpp_pipeline import vcf2smc,estimate,plot
 1) Function to convert vcf file to smc format
   def vcf2smc(popfile,chromosome_info,gaps_bed,num_workers)
 2) Function to estimate the demographic history of a single population
@@ -12,7 +14,8 @@ If the user has a single genotype file, then user can make use of bcftools scrip
 3) Function to generate plots from the model.json file obtained using estimate function
    def plot(popfile,time_start=100,time_end=15000)
 
-popfile should be a tab separated file containing two columns 
+popfile should be a tab separated file containing two columns
+
 sample.id  population
 i1          pop1
 i2          pop1
