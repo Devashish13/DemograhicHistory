@@ -6,6 +6,8 @@ setup(
     author="Devashish Tripathi",
     author_email="devashishtripathi697@gmail.com",
     description="A python pipeline for implementing smcpp package to decipher demographic history of populations",
+    long_description=open("README.md").read(),
+    long_description_content_type="text/markdown",
     packages=find_packages(),
     install_requires=[
         "numpy>=1.18.5",
