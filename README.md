@@ -6,7 +6,7 @@ All the functions assume that the user has generated population population-speci
 If the user has a single genotype file, then user can make use of bcftools script provided here to generate population-specific bgzipped and tabix index VCFs.
 
 ```python
-from smcpp_pipeline import vcf2smc,estimate,plot
+from smcpp_pipeline.smcpp_pipeline import vcf2smc,estimate,plot
 
 1) Function to convert vcf file to smc format
   def vcf2smc(popfile,chromosome_info,gaps_bed,num_workers):
