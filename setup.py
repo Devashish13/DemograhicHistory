@@ -2,13 +2,10 @@ from setuptools import setup, find_packages
 
 setup(
     name="smcpp_pipeline",
-    version="0.1.0",
+    version="0.1",
     author="Devashish Tripathi",
     author_email="devashishtripathi697@gmail.com",
     description="A python pipeline for implementing smcpp package to decipher demographic history of populations",
-    long_description=open("README.md").read(),
-    long_description_content_type="text/markdown",
-    url="https://github.com/Devashish13/smcpp_pipeline",
     packages=find_packages(),
     install_requires=[
         "numpy>=1.18.5",
