@@ -14,10 +14,10 @@ Terhorst, J., Kamm, J. & Song, Y. Robust and scalable inference of population hi
 
 The package can be installed through Pypi (https://pypi.org/project/smcpp-pipeline/)
 
+```python
 pip install smcpp-pipeline==0.2.0
 
 
-```python
 from smcpp_pipeline.smcpp_pipeline import vcf2smc,estimate,plot
 
 1) Function to convert vcf file to smc format
