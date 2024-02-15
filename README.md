@@ -12,6 +12,11 @@ The original article can be found here
 
 Terhorst, J., Kamm, J. & Song, Y. Robust and scalable inference of population history from hundreds of unphased whole genomes. Nat Genet 49, 303–309 (2017). https://doi.org/10.1038/ng.3748
 
+The package can be installed through Pypi (https://pypi.org/project/smcpp-pipeline/)
+
+pip install smcpp-pipeline==0.2.0
+
+
 ```python
 from smcpp_pipeline.smcpp_pipeline import vcf2smc,estimate,plot
 
