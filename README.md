@@ -4,6 +4,12 @@ A python pipeline for implementing smcpp to decipher demographic history of popu
 All the functions assume that the user has generated population population-specific chromosome file and stored it in a directory popname_vcf present in the current working directory. all the chromosome files should be bgzipped and tabix indexed.
 
 If the user has a single genotype file, then user can make use of bcftools script provided here to generate population-specific bgzipped and tabix index VCFs.
+the original package can be found here
+https://github.com/popgenmethods/smcpp
+
+The original article can be found here
+
+Terhorst, J., Kamm, J. & Song, Y. Robust and scalable inference of population history from hundreds of unphased whole genomes. Nat Genet 49, 303–309 (2017). https://doi.org/10.1038/ng.3748
 
 ```python
 from smcpp_pipeline.smcpp_pipeline import vcf2smc,estimate,plot
