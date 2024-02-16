@@ -14,6 +14,9 @@ Terhorst, J., Kamm, J. & Song, Y. Robust and scalable inference of population hi
 
 The package can be installed through Pypi (https://pypi.org/project/smcpp-pipeline/)
 
+
+A tutorial has been provided in a blog (https://medium.com/@devashishtripathi697/population-history-inference-using-whole-genome-sequence-data-9cf99821cd1f) using the simulated data hosted at figshare (https://figshare.com/articles/dataset/msprime_single_population_simulated_dataset/25234849)
+
 ```python
 pip install smcpp-pipeline==0.2.0
 
@@ -34,4 +37,3 @@ i1          pop1
 i2          pop1
 i3          pop2  
 
-A tutorial has been provided in a blog (https://medium.com/@devashishtripathi697/population-history-inference-using-whole-genome-sequence-data-9cf99821cd1f) using the simulated data hosted at figshare (https://figshare.com/articles/dataset/msprime_single_population_simulated_dataset/25234849)
