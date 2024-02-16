@@ -18,7 +18,7 @@ The package can be installed through Pypi (https://pypi.org/project/smcpp-pipeli
 A tutorial has been provided in a blog (https://medium.com/@devashishtripathi697/population-history-inference-using-whole-genome-sequence-data-9cf99821cd1f) using the simulated data hosted at figshare (https://figshare.com/articles/dataset/msprime_single_population_simulated_dataset/25234849)
 
 ```python
-pip install smcpp-pipeline==0.2.0
+pip install smcpp-pipeline
 
 
 from smcpp_pipeline.smcpp_pipeline import vcf2smc,estimate,plot
