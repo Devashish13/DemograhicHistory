@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="smcpp_pipeline",
-    version="0.2.0",
+    version="0.3.0",
     author="Devashish Tripathi",
     author_email="devashishtripathi697@gmail.com",
     description="A python pipeline for implementing smcpp package to decipher demographic history of populations",
