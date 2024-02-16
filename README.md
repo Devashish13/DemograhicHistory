@@ -33,3 +33,5 @@ sample.id  population
 i1          pop1
 i2          pop1
 i3          pop2  
+
+A tutorial has been provided in a blog (https://medium.com/@devashishtripathi697/population-history-inference-using-whole-genome-sequence-data-9cf99821cd1f) using the simulated data hosted at figshare (https://figshare.com/articles/dataset/msprime_single_population_simulated_dataset/25234849)
