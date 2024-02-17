@@ -29,7 +29,7 @@ from smcpp_pipeline.smcpp_pipeline import vcf2smc,estimate,plot
    def estimate(popfile,mu = 1.25e-8,spline = "piecewise",start_time = 100, end_time=100000,knots = 8):
 3) Function to generate plots from the model.json file obtained using estimate function
    def plot(popfile,time_start=100,time_end=15000):
-
+```
 popfile should be a tab separated file containing two columns
 
 sample.id  population
