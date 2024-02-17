@@ -32,6 +32,7 @@ from smcpp_pipeline.smcpp_pipeline import vcf2smc,estimate,plot
 ```
 popfile should be a tab separated file containing two columns
 
+```
 sample.id  population
 i1          pop1
 i2          pop1
