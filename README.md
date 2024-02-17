@@ -24,7 +24,7 @@ pip install smcpp-pipeline
 from smcpp_pipeline.smcpp_pipeline import vcf2smc,estimate,plot
 
 1) Function to convert vcf file to smc format
-  def vcf2smc(popfile,chromosome_info,gaps_bed,num_workers):
+  def vcf2smc(popfile,chromosome_info,gaps_bed=None,num_workers=None):
 2) Function to estimate the demographic history of a single population
    def estimate(popfile,mu = 1.25e-8,spline = "piecewise",start_time = 100, end_time=100000,knots = 8):
 3) Function to generate plots from the model.json file obtained using estimate function
