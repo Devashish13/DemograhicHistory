@@ -1,6 +1,6 @@
 #vcf2smc converts chromosomewise vcf to smc format for each population
 
-def vcf2smc(popfile,chromosome_info,gaps_bed=None,num_workers=None):
+def vcf2smc(popfile,chromosome_info,version = "latest",gaps_bed=None,num_workers=None):
         import pandas as pd
         import os
         import concurrent.futures
@@ -31,15 +31,15 @@ def vcf2smc(popfile,chromosome_info,gaps_bed=None,num_workers=None):
                 os.system(f"tabix -f -p vcf {j}/{i}.vcf.gz")
                 os.system(f"mkdir out/{j}")
                 if gaps_bed is None:
-                        os.system(f"docker run --rm -v $PWD:/mnt terhorst/smcpp:latest vcf2smc -d {d_ids} --length {chr_len_bp} {j}/{i}.vcf.gz out/{j}/{i}.smc.gz {contig} {j}:{popls}")
+                        os.system(f"docker run --rm -v $PWD:/mnt terhorst/smcpp:{version} vcf2smc -d {d_ids} --length {chr_len_bp} {j}/{i}.vcf.gz out/{j}/{i}.smc.gz {contig} {j}:{popls}")
                 else:
-                        os.system(f"docker run --rm -v $PWD:/mnt terhorst/smcpp:latest vcf2smc -d {d_ids} -m {gaps_bed} --length {chr_len_bp} {j}/{i}.vcf.gz out/{j}/{i}.smc.gz {contig} {j}:{popls}")
+                        os.system(f"docker run --rm -v $PWD:/mnt terhorst/smcpp:{version} vcf2smc -d {d_ids} -m {gaps_bed} --length {chr_len_bp} {j}/{i}.vcf.gz out/{j}/{i}.smc.gz {contig} {j}:{popls}")
 
         # Parallelize over combinations of i and j
         with concurrent.futures.ThreadPoolExecutor(max_workers=num_workers) as executor:
                 executor.map(lambda x: process_chromosome(x[0], x[1]), combs)
 
-def estimate(popfile,mu = 1.25e-8,spline = "piecewise",start_time = 100, end_time=100000,knots = 8):
+def estimate(popfile,version = "latest",mu = 1.25e-8,spline = "piecewise",start_time = 100, end_time=100000,knots = 8):
         import pandas as pd
         import os
         df = pd.read_csv(popfile,sep = "\t")
@@ -47,9 +47,9 @@ def estimate(popfile,mu = 1.25e-8,spline = "piecewise",start_time = 100, end_tim
 
         for j in unique_pops:
                 os.system(f"mkdir analysis/{j}")
-                os.system(f"docker run --rm -v $PWD:/mnt terhorst/smcpp:latest estimate {mu} -o analysis/{j}/ out/{j}/chr*.smc.gz --knots {knots} --timepoints {start_time} {end_time} --spline {spline}")
+                os.system(f"docker run --rm -v $PWD:/mnt terhorst/smcpp:{version} estimate {mu} -o analysis/{j}/ out/{j}/chr*.smc.gz --knots {knots} --timepoints {start_time} {end_time} --spline {spline}")
 
-def plot(popfile,time_start=100,time_end=15000):
+def plot(popfile,version="latest",time_start=100,time_end=15000):
         import pandas as pd
         import os
         df = pd.read_csv(popfile,sep = "\t")
@@ -57,7 +57,7 @@ def plot(popfile,time_start=100,time_end=15000):
 
         s = "docker run --rm -v $PWD:/mnt terhorst/smcpp:latest plot plots/demography_all.png "
         for k in unique_pops:
-                z = f"docker run --rm -v $PWD:/mnt terhorst/smcpp:latest plot plots/{k}.png analysis/{k}/model.final.json -x {time_start} {time_end} -c"
+                z = f"docker run --rm -v $PWD:/mnt terhorst/smcpp:{version} plot plots/{k}.png analysis/{k}/model.final.json -x {time_start} {time_end} -c"
                 os.system(z)
                 s = s+f"analysis/{k}/model.final.json "
 
